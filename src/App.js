@@ -2,6 +2,10 @@
 // import './App.css';
 import Navbar from './components/Nabbar';
 import Card  from './components/Card';
+import Vender from './components/Vender';
+import Product from './components/Product';
+import PublishRequirement from './components/PublishRequirement';
+
 
 
 function App() {
@@ -9,6 +13,10 @@ function App() {
     <div className="App">
         <Navbar />
         <Card />
+        <Vender />
+        <Product />
+        <PublishRequirement />
+        
     </div>
   );
 }

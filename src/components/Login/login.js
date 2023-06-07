@@ -1,8 +1,55 @@
 import React from 'react'
+import axios from "axios";
+import { useEffect, useState } from "react";
+import validation from "./LoginValidation";
+import { useNavigate } from "react-router-dom";
 
-const login = () => {
+const Login = () => {
+    const [errors, setErrors] = useState({});
+    const [checking, setChecking] = useState(false);
+
+    const navigate = useNavigate();
+    const [values, setValues] = useState({
+        email: "",
+        password: "",
+    });
+
+    const handleInput = (e) => {
+        setValues({ ...values, [e.target.name]: e.target.value });
+    };
+    function handleValidation(e) {
+        e.preventDefault();
+        setChecking(true);
+        setErrors(validation(values));
+    }
+    useEffect(() => {
+        if (checking && Object.keys(errors).length === 0) {
+            fetchData();
+        }
+    }, [errors]);
+
+    const fetchData = async () => {
+        setChecking(false);
+        await axios
+            .post(
+                "http://localhost:3010/users/login",
+                {
+                    email: values.email,
+                    password: values.password,
+                })
+            .then((result) => {
+                console.log('result', result.data);
+                alert('Login successfully');
+                navigate('/Home');
+            })
+            .catch((error) => {
+                alert('Incorrect Email or Password')
+                console.log("Unauthorised User");
+                console.log(error);
+            });
+    };
+
     return (
-
         <>
             <title>Login</title>
 
@@ -21,7 +68,7 @@ const login = () => {
                                     Please login to your account.
                                 </p>
                             </div>
-                            <form>
+                            <form onSubmit={handleValidation}>
                                 <div className="space-y-5">
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-gray-700 tracking-wide">
@@ -32,13 +79,13 @@ const login = () => {
                                             name="email"
                                             type="email"
                                             id="email"
-
+                                            onChange={handleInput}
                                             placeholder="mail@gmail.com"
 
                                         ></input>
-                                        {/* {errors.email && (
+                                        {errors.email && (
                                             <p style={{ color: "red" }}>{errors.email}</p>
-                                        )} */}
+                                        )}
                                     </div>
                                     <div className="space-y-2">
                                         <label
@@ -52,11 +99,11 @@ const login = () => {
                                             name="password"
 
                                             placeholder="Enter your password"
-
+                                            onChange={handleInput}
                                         ></input>
-                                        {/* {errors.password && (
+                                        {errors.password && (
                                             <p style={{ color: "red" }}>{errors.password}</p>
-                                        )} */}
+                                        )}
                                     </div>
                                     <div className="flex items-center justify-between">
                                         <div className="flex items-center">
@@ -81,7 +128,7 @@ const login = () => {
                                     <div>
                                         <button
                                             type="submit"
-
+                                            onClick={handleValidation}
                                             className="w-full flex justify-center bg-blue-400  hover:bg-orange-500 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-400">
                                             Login
                                         </button>
@@ -106,4 +153,4 @@ const login = () => {
         </>
     )
 }
-export default login;
+export default Login;

@@ -3,9 +3,12 @@ function validation(values) {
     const email_pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     const password_pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/
 
-    if (values.username === "") {
-        error.username = "Username Should not be empty"
+    if (values.gstNo === "") {
+        error.gstNo = "GST No Should not be empty"
     }
+    // if (values.company_name === "") {
+    //     error.company_name = "Company Name Should not be empty"
+    // }
     if (values.email === "") {
         error.email = "Email Should not be empty"
     }
@@ -18,11 +21,7 @@ function validation(values) {
     else if (!password_pattern.test(values.password)) {
         error.password = "Password Didn't match"
     }
-    if (values.confirm_password === "" || String(values.confirm_password) !== String(values.password)) {
-        console.log(values.confirm_password + "___" + values.password)
-        error.confirm_password = "Password Didn't match"
 
-    }
     return error;
 
 }

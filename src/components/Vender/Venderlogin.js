@@ -1,10 +1,10 @@
 import React from 'react'
 import axios from "axios";
 import { useEffect, useState } from "react";
-import validation from "./LoginValidation";
+import validation from "./VenderLoginValidation";
 import { useNavigate, Link } from "react-router-dom";
 
-const Login = () => {
+const VenderLogin = () => {
     const [errors, setErrors] = useState({});
     const [checking, setChecking] = useState(false);
 
@@ -32,7 +32,7 @@ const Login = () => {
         setChecking(false);
         console.log('values', values)
         axios.post(
-            "http://localhost:3010/users/login",
+            "http://localhost:3010/vendors/login",
             {
                 email: values.email,
                 password: values.password
@@ -49,13 +49,11 @@ const Login = () => {
             });
     };
 
-
-
     return (
         <>
             <title>Login</title>
 
-            <div className="login">
+            <div className='vl'>
                 <div className="min-h-screen sm:flex sm:flex-row justify-center">
                     <div className="flex-col flex self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
                         <div className="self-start hidden lg:flex flex-col text-white"></div>
@@ -64,7 +62,7 @@ const Login = () => {
                         <div className="p-12 bg-white mx-auto rounded-2xl w-100 ">
                             <div className="mb-4">
                                 <h3 className="font-semibold text-2xl text-center text-gray-800">
-                                    Login
+                                    Vender Login
                                 </h3>
                                 <p className="text-gray-500 text-center">
                                     Please login to your account.
@@ -136,7 +134,7 @@ const Login = () => {
                                         </button>
                                     </div>
                                     <div class="text-center">
-                                        <p>Not a member? <Link to="/Signup"><a className=" text-muted text-blue-400 hover:text-orange-500">Register</a></Link></p>
+                                        <p>Not a member? <Link to="/VenderSignup"><a className=" text-muted text-blue-400 hover:text-orange-500">Register</a></Link></p>
 
                                     </div>
                                 </div>
@@ -159,4 +157,4 @@ const Login = () => {
         </>
     )
 }
-export default Login;
+export default VenderLogin;

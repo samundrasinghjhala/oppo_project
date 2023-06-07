@@ -80,6 +80,7 @@ const Signup = () => {
                                     Create an User account.
                                 </p>
                             </div>
+
                             <form onSubmit={handleValidation}>
                                 <div className="space-y-2">
                                     <div className="space-y-2">
@@ -171,7 +172,9 @@ const Signup = () => {
                                             name="address"
                                             onChange={handleInput}
                                             placeholder="Enter Address"
-                                        ></input>
+                                        ></input>  {errors.address && (
+                                            <p style={{ color: "red" }}>{errors.address}</p>
+                                        )}
 
                                     </div>
                                     <div>

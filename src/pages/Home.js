@@ -4,6 +4,7 @@ import logo from '../phone logo.png'
 import { useNavigate } from 'react-router-dom'
 import product1 from '../image/product1.jpg';
 import product2 from '../image/product2.jpg';
+import { Link } from 'react-router-dom';
 
 
 
@@ -34,11 +35,11 @@ const Home = () => {
                             </div>
                         </div>
                         <nav className=" flex items-center justify-center md:ml-auto">
-                            <a href="#" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">Home</a>
-                            <a href="#" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">Product</a>
-                            <a href="#" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">Gallary</a>
-                            <a href="#" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">About</a>
-                            <a href="#" className="mr-20 font-semibold text-gray-900 hover:text-orange-500">Contact</a>
+                            <Link to="/Home" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">Home</Link>
+                            <Link to="/Product" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">Product</Link>
+                            <Link to="/Gallary" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">Gallary</Link>
+                            <Link to="/About" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">About</Link>
+                            <Link to="/Contact" className="mr-20 font-semibold text-gray-900 hover:text-orange-500">Contact</Link>
                         </nav>
                         <div className=" flex items-end h-full pl-7 ml-10 border-l  border-gray-200 absolute inset-y-0 right-0 pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 

@@ -38,14 +38,16 @@ const Login = () => {
                 password: values.password
             })
             .then((result) => {
-                const res = result.data
                 console.log('result', result.data);
                 if (
                     result.data.data.role === 'admin'
                 ) {
+                    console.log(result.data.data.auth_token)
+                    localStorage.setItem('token', result.data.data.auth_token);
                     alert('Admin Login successfully');
                     navigate('/AdminPage');
                 } else {
+                    localStorage.setItem('token', result.data.data.auth_token);
                     alert('User Login successfully');
                     navigate('/Home');
                 }
@@ -58,7 +60,7 @@ const Login = () => {
     };
     return (
         <>
-            <title>Login</title>
+           
 
             <div className="login">
                 <div className="min-h-screen sm:flex sm:flex-row justify-center">
@@ -140,7 +142,7 @@ const Login = () => {
                                             Login
                                         </button>
                                     </div>
-                                    <div class="text-center">
+                                    <div className="text-center">
                                         <p>Not a member? <Link to="/Signup"><a className=" text-muted text-blue-400 hover:text-orange-500">Register</a></Link></p>
 
                                     </div>

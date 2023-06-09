@@ -3,14 +3,14 @@ import { Menu } from '@headlessui/react'
 import logo from '../phone logo.png'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom';
-
-
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Navbar = () => {
     const navigate = useNavigate();
 
     const handleLogOut = (e) => {
         e.preventDefault();
+        localStorage.removeItem('token')
         navigate("/");
     }
 
@@ -39,8 +39,10 @@ const Navbar = () => {
                             <Link to="/About" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">About</Link>
                             <Link to="/Contact" className="mr-20 font-semibold text-gray-900 hover:text-orange-500">Contact</Link>
                         </nav>
+                        <Link className='font-semibold text-gray-900 hover:text-orange-500'>
+                            <FaShoppingCart />
+                        </Link>
                         <div className=" flex items-end h-full pl-7 ml-10 border-l  border-gray-200 absolute inset-y-0 right-0 pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-
                             <Menu as="div" className="relative ml-3">
                                 <div>
                                     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">

@@ -42,9 +42,11 @@ const VenderLogin = () => {
                 if (
                     result.data.data.role === 'vendor'
                 ) {
+                    localStorage.setItem('token', result.data.data.auth_token);
                     alert('Vendor Login successfully');
                     navigate('/VenderPO');
                 } else {
+                    localStorage.setItem('token', result.data.data.auth_token);
                     alert('Dealer Login successfully');
                     navigate('/DealerReq');
                 }

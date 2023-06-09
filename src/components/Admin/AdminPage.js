@@ -16,6 +16,7 @@ const AdminPage = () => {
 
     const handleLogOut = (e) => {
         e.preventDefault();
+        localStorage.removeItem('token')
         navigate("/");
     }
 

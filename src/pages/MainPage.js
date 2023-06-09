@@ -1,19 +1,19 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import logo from '../phone logo.png'
 
 
 const MainPage = () => {
     return (
         <>
-            <nav className=" bg-red-300 flex items-center justify-center md:ml-auto">
-                <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-16">
-                        <div className="hidden md:block">
-                            <div className="flex items-baseline ml-10 space-x-4">
-                                {/* <Link to="/Signup" className="px-5 py-2 text-md font-medium text-gray-800 rounded-md hover:bg-gray-900 hover:text-white">Registration</Link> */}
-                                {/* <Link to="/login" className="px-5 py-2 text-md font-medium text-gray-800 rounded-md hover:bg-gray-900 hover:text-white">Login</Link> */}
-                            </div>
-                        </div>
+            <nav className=" bg-white flex md:ml-auto">
+                <div className="flex items-start">
+                    <div className="flex-shrink-0">
+                        <img
+                            className="h-12 w-30"
+                            src={logo}
+                            alt="Your Company"
+                        />
                     </div>
                 </div>
             </nav>
@@ -23,8 +23,8 @@ const MainPage = () => {
                 <div className=" bg-black opacity-20 inset-0 z-0">
                 </div>
                 <div className="w-full mx-auto px-20 flex-col items-center space-y-6">
-                    <h1 className="text-white font-bold text-4xl font-sans">SAMSUNG GALAXY</h1>
-                    <p className="text-white mt-1">Welcome to Samsung World</p>
+                    <h1 className="text-white font-bold text-4xl font-sans">PHONE STORE</h1>
+                    <p className="text-white mt-1">Supply Chain Management</p>
                     <div className="flex justify-center lg:justify-start mt-6">
                         <Link to="/login" className="hover:bg-indigo-700 hover:text-white hover:-translate-y-1 transition-all duration-500 bg-white text-indigo-800 mt-4 px-4 py-2 rounded-2xl font-bold mb-2">Get Started</Link>
                     </div>
@@ -38,6 +38,11 @@ const MainPage = () => {
                         <div className="px-5 py-2">
                             <Link to="/VenderLogin" className=" text-muted text-blue-400 hover:text-orange-500">
                                 Vender
+                            </Link>
+                        </div>
+                        <div className="px-5 py-2">
+                            <Link to="/VenderLogin" className=" text-muted text-blue-400 hover:text-orange-500">
+                                Dealer
                             </Link>
                         </div>
 

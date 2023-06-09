@@ -39,8 +39,16 @@ const VenderLogin = () => {
             })
             .then((result) => {
                 console.log('result', result.data);
-                alert('Login successfully');
-                navigate('/Home');
+                if (
+                    result.data.data.role === 'vendor'
+                ) {
+                    alert('Vendor Login successfully');
+                    navigate('/VenderPO');
+                } else {
+                    alert('Dealer Login successfully');
+                    navigate('/DealerReq');
+                }
+
             })
             .catch((error) => {
                 alert('Incorrect Email or Password')
@@ -51,8 +59,6 @@ const VenderLogin = () => {
 
     return (
         <>
-            <title>Login</title>
-
             <div className='vl'>
                 <div className="min-h-screen sm:flex sm:flex-row justify-center">
                     <div className="flex-col flex self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
@@ -62,7 +68,7 @@ const VenderLogin = () => {
                         <div className="p-12 bg-white mx-auto rounded-2xl w-100 ">
                             <div className="mb-4">
                                 <h3 className="font-semibold text-2xl text-center text-gray-800">
-                                    Vender Login
+                                    Login
                                 </h3>
                                 <p className="text-gray-500 text-center">
                                     Please login to your account.
@@ -133,7 +139,7 @@ const VenderLogin = () => {
                                             Login
                                         </button>
                                     </div>
-                                    <div class="text-center">
+                                    <div className="text-center">
                                         <p>Not a member? <Link to="/VenderSignup"><a className=" text-muted text-blue-400 hover:text-orange-500">Register</a></Link></p>
 
                                     </div>

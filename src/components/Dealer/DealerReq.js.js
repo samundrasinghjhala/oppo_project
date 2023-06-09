@@ -5,16 +5,16 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const ProductForm = () => {
+const DealerReq = () => {
     const navigate = useNavigate();
     const [values, setValues] = useState({
-        sku_product_id: "",
+        dealer: "64819b5f8297ba148709c372",  //dealer ID
+        product: "",
         model_name: "",
         color: "",
-        price: "",
         quantity: "",
         description: "",
-        photos: "",
+
 
     });
 
@@ -30,21 +30,21 @@ const ProductForm = () => {
     // useEffect(() => {
 
     // }, []);
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjQ3ZWQ1N2FkZTM3NzY0MTY5ZDhlZTg3IiwiaWF0IjoxNjg2MjAxOTY2LCJleHAiOjE2ODY4MDY3NjZ9.6ALOsjSFr1AF2HV31eb6tJixVJoC5R_A_W8xIFoUhDw"
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjQ4MTliNWY4Mjk3YmExNDg3MDljMzcyIiwiaWF0IjoxNjg2MjE1NjE5LCJleHAiOjE2ODY4MjA0MTl9.225hJE9IH1k0BWBnSgkYJ1EZgRvBljnTaOJYlx3lRxI"
 
     const fetchData = async () => {
         console.log(values);
         await axios
             .post(
-                "http://localhost:3010/products",
+                "http://localhost:3010/req_dealer",
                 {
-                    sku_product_id: values.sku_product_id,
+                    dealer: values.dealer,
+                    product: values.product,
                     model_name: values.model_name,
                     color: values.color,
-                    price: values.price,
                     quantity: values.quantity,
                     description: values.description,
-                    photos: values.photos,
+
                 },
                 {
                     headers: {
@@ -55,11 +55,11 @@ const ProductForm = () => {
             )
             .then((result) => {
                 console.log(result.data);
-                alert("Product Upload successfully");
-                navigate("/");
+                alert("Submit successfully");
+                navigate("/DealerReqView");
             })
             .catch((error) => {
-                console.log("Product Not Uploaded!");
+                console.log(" Upload Unsuccessfully!");
                 console.log(error);
             });
     };
@@ -82,17 +82,17 @@ const ProductForm = () => {
                     <div className=" w-full px-8 md:px-32 lg:px-24">
 
                         <form className="bg-white rounded-3xl shadow-2xl p-11 pt-5">
-                            <h1 className="text-gray-800 text-center font-bold text-2xl mb-1">Product Detail</h1>
+                            <h1 className="text-gray-800 text-center font-bold text-2xl mb-1">Dealer Requirement</h1>
                             <div className="space-y-2">
                                 <label className="text-md font-medium text-gray-700 tracking-wide">
-                                    Product Code
+                                    Product Name
                                 </label>
                                 <input
                                     className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
                                     type="text"
-                                    name="sku_product_id"
+                                    name="product"
                                     onChange={handleInput}
-                                    placeholder="Enter Product code"
+                                    placeholder="Enter Product Name"
                                 ></input>
                             </div>
                             <div className="space-y-2">
@@ -132,19 +132,7 @@ const ProductForm = () => {
                                     </label>
                                 </div>
                             </div>
-                            <div className="space-y-2">
-                                <label className="mb-5 text-md font-medium text-gray-700 tracking-wide">
-                                    Price
-                                </label>
-                                <input
-                                    className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
-                                    type="number"
-                                    name="price"
-                                    onChange={handleInput}
-                                    placeholder="Enter Price"
-                                ></input>
 
-                            </div>
                             <div className="space-y-2">
                                 <label className="mb-5 text-md font-medium text-gray-700 tracking-wide">
                                     Quantity
@@ -166,20 +154,9 @@ const ProductForm = () => {
                                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 />
                             </div>
-                            <div className="space-y-2">
-                                <label className="text-md font-medium text-gray-700 tracking-wide">
-                                    Photos
-                                </label>
-                                <input
-                                    className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
-                                    type="file"
-                                    id="updoadimage"
-                                    name="photos"
-                                    onChange={handleInput}
-                                ></input>
-                            </div>
+
                             <div className=' flex justify-center'>
-                                <button type="submit" onClick={handleValidation} className="hover:bg-indigo-700 hover:text-orange-600  hover:-translate-y-1 transition-all duration-500 bg-indigo-800 text-white mt-4 px-4 py-2 rounded-2xl font-bold mb-2">Submit Product</button>
+                                <button type="submit" onClick={handleValidation} className="hover:bg-indigo-700 hover:text-orange-600  hover:-translate-y-1 transition-all duration-500 bg-indigo-800 text-white mt-4 px-4 py-2 rounded-2xl font-bold mb-2">Submit </button>
                             </div>
                         </form>
                     </div>
@@ -188,4 +165,4 @@ const ProductForm = () => {
         </div>
     )
 }
-export default ProductForm;
+export default DealerReq;

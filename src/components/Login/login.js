@@ -38,9 +38,17 @@ const Login = () => {
                 password: values.password
             })
             .then((result) => {
+                const res = result.data
                 console.log('result', result.data);
-                alert('Login successfully');
-                navigate('/Home');
+                if (
+                    result.data.data.role === 'admin'
+                ) {
+                    alert('Admin Login successfully');
+                    navigate('/AdminPage');
+                } else {
+                    alert('User Login successfully');
+                    navigate('/Home');
+                }
             })
             .catch((error) => {
                 alert('Incorrect Email or Password')
@@ -48,9 +56,6 @@ const Login = () => {
                 console.log(error);
             });
     };
-
-
-
     return (
         <>
             <title>Login</title>

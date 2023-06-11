@@ -6,19 +6,29 @@ import logo from '../phone logo.png'
 const MainPage = () => {
     return (
         <>
-            <nav className=" bg-white flex md:ml-auto">
-                <div className="flex items-start">
-                    <div className="flex-shrink-0">
-                        <img
-                            className="h-12 w-30"
-                            src={logo}
-                            alt="Your Company"
-                        />
+            <div className="min-h-10 bg-gray-100 min-w-screen">
+                <div className="w-full text-gray-700 bg-white shadow-md body-font" >
+                    <div className="container flex flex-col p-4 mx-auto md:flex-row">
+                        <div className="flex items-center">
+                            <div className="flex-shrink-0">
+                                <img
+                                    className="h-10 w-25"
+                                    src={logo}
+                                    alt="Your Company"
+                                />
+                            </div>
+                        </div>
+                        <nav className=" flex items-center justify-center md:ml-auto">
+                            <Link to="/" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">Home</Link>
+                            <Link to="/Product" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">Product</Link>
+                            <Link to="/Gallary" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">Gallary</Link>
+                            <Link to="/About" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">About</Link>
+                            <Link to="/Contact" className="mr-20 font-semibold text-gray-900 hover:text-orange-500">Contact</Link>
+                        </nav>
                     </div>
                 </div>
-            </nav>
-            {/* <div className="main">
-            </div> */}
+            </div>
+
             <div className="hidden lg:flex w-full lg:w-1/2 main justify-around items-center">
                 <div className=" bg-black opacity-20 inset-0 z-0">
                 </div>

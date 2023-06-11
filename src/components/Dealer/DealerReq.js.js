@@ -3,8 +3,6 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
-
 const DealerReq = () => {
     const navigate = useNavigate();
     const [values, setValues] = useState({
@@ -14,14 +12,11 @@ const DealerReq = () => {
         color: "",
         quantity: "",
         description: "",
-
-
     });
 
     const handleInput = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value });
     };
-
 
     function handleValidation(e) {
         e.preventDefault();
@@ -30,7 +25,7 @@ const DealerReq = () => {
     // useEffect(() => {
 
     // }, []);
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjQ4MTliNWY4Mjk3YmExNDg3MDljMzcyIiwiaWF0IjoxNjg2MjE1NjE5LCJleHAiOjE2ODY4MjA0MTl9.225hJE9IH1k0BWBnSgkYJ1EZgRvBljnTaOJYlx3lRxI"
+    const token = localStorage.getItem('token')
 
     const fetchData = async () => {
         console.log(values);

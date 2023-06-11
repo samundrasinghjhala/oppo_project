@@ -6,7 +6,7 @@ import { useNavigate, Link } from "react-router-dom";
 const VenderPO = () => {
     const navigate = useNavigate();
     const [values, setValues] = useState({
-        vendor: "6482e6e81665b3d6a3feebc0",  //vendor id
+        vendor: "6482e6e81665b3d6a3feebc0",
         product: "",
         price: "",
         quantity: "",
@@ -26,11 +26,8 @@ const VenderPO = () => {
         e.preventDefault();
         fetchData();
     }
-    // useEffect(() => {
 
-    // }, []);
-    // vendor login token
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjQ4MmU2ZTgxNjY1YjNkNmEzZmVlYmMwIiwiaWF0IjoxNjg2MzAxMDY3LCJleHAiOjE2ODY5MDU4Njd9.Vv5r70_zP6Tma8apCnlQ6nIdBIP09TDASzhdF-1NdSs"
+    const token = localStorage.getItem('token')
 
     const fetchData = async () => {
         console.log(values);

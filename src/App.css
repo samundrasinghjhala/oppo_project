@@ -57,6 +57,15 @@
   background-repeat: no-repeat;
 }
 
+.flex-cart {
+  display: flex;
+  flex-wrap: wrap;
+}
+.shopping-cart {
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

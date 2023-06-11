@@ -22,9 +22,12 @@ import DealerReqView from './components/Dealer/DealerReqView';
 import AdminViewVenderReq from './components/Admin/AdminViewVenderReq';
 import AdminViewPO from './components/Admin/AdminViewPO';
 import Navbar from './pages/Navbar';
-
+import ItemCard from './pages/ItemCard';
+import Cart from './pages/Cart';
+import HomeCart from './pages/HomeCart';
 
 function App() {
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -32,7 +35,6 @@ function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} />
-          <Route path="/Home" element={<Home />} />
           <Route path="/Navbar" element={<Navbar />} />
           <Route path="/Product" element={<Product />} />
           <Route path="/Gallary" element={<Gallary />} />
@@ -50,6 +52,10 @@ function App() {
           <Route path="/DealerReqView" element={<DealerReqView />} />
           <Route path="/AdminViewVenderReq" element={<AdminViewVenderReq />} />
           <Route path="/AdminViewPO" element={<AdminViewPO />} />
+          <Route path="/ItemCard" element={<ItemCard />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/HomeCart" element={<HomeCart />} />
+          <Route path="/Cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
     </div>

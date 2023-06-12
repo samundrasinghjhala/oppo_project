@@ -26,6 +26,7 @@ import ItemCard from './pages/ItemCard';
 import Cart from './pages/Cart';
 import HomeCart from './pages/HomeCart';
 
+
 function App() {
 
   return (
@@ -58,6 +59,7 @@ function App() {
           <Route path="/Cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
+
     </div>
   );
 }

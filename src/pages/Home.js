@@ -2,15 +2,23 @@ import Navbar from "./Navbar";
 import Cart from './Cart';
 import HomeCart from './HomeCart';
 import { CartProvider } from 'react-use-cart';
+import { useState } from "react";
+import Footer from "./Footer";
 
 const Home = () => {
+    const [show, setShow] = useState(false);
+
     return (
         <>
-            <Navbar />
             <CartProvider>
+                <Navbar show={setShow} />
                 <HomeCart />
-                <Cart />
+                {
+                    show && <Cart />
+                }
+
             </CartProvider>
+            <Footer />
         </>
     )
 }

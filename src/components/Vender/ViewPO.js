@@ -27,36 +27,40 @@ const ViewPO = () => {
 
     return (
         <>
-            <h1 className='h1'>Purchase Order List</h1>
-            <div>
-                <table style={{ borderCollapse: 'collapse', border: '1px solid black' }}>
-                    <thead>
-                        <tr>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>Product</th>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>Quantity</th>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>Price</th>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>Deliver Date</th>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>Description</th>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>Purchase Order Copy</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.map((item) => (
-                            <tr key={item._id}>
-                                <td style={{ border: '1px solid black', padding: '8px' }}>{item.product}</td>
-                                <td style={{ border: '1px solid black', padding: '8px' }}>{item.quantity}</td>
-                                <td style={{ border: '1px solid black', padding: '8px' }}>{item.price}</td>
-                                <td style={{ border: '1px solid black', padding: '8px' }}>{item.will_deliver_within}</td>
-                                <td style={{ border: '1px solid black', padding: '8px' }}>{item.description}</td>
-                                <td style={{ border: '1px solid black', padding: '8px' }}>{item.po_copy}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table><br />
-                <div>
-                    <Link to="/VenderPO" className=" text-2xl  text-muted text-blue-400 hover:text-orange-500">
-                        Create PO
-                    </Link>
+            <div className='vl'>
+                <h1 className='h1'>Purchase Order List</h1>
+                <div class="md:px-32 py-2 w-full">
+                    <div class="shadow overflow-hidden rounded border-b border-gray-200">
+                        <table class="min-w-full bg-white">
+                            <thead class="bg-gray-800 text-white">
+                                <tr>
+                                    <th class=" text-left py-3 px-4 uppercase font-semibold text-sm">Product</th>
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Quantity</th>
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Price</th>
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Deliver Date</th>
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Description</th>
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Purchase Order Copy</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                {data.map((item) => (
+                                    <tr class="bg-gray-100" key={item._id}>
+                                        <td class="text-left font-semibold py-3 px-4">{item.product}</td>
+                                        <td class="text-left font-semibold text-cyan-600 py-3 px-4">{item.quantity}</td>
+                                        <td class="text-left font-semibold text-red-600 py-3 px-4">{item.price}</td>
+                                        <td class="text-left font-semibold text-fuchsia-600 py-3 px-4">{item.will_deliver_within}</td>
+                                        <td class="text-left font-semibold text-green-600 py-3 px-4">{item.description}</td>
+                                        <td class="text-left font-semibold py-3 px-4">{item.po_copy}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <Link to="/VenderPO" className=" text-2xl  text-muted text-blue-400 hover:text-orange-500">
+                            Create Purchase Order
+                        </Link>
+                    </div>
                 </div>
             </div>
         </>

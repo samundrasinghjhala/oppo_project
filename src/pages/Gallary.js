@@ -6,9 +6,9 @@ export const Gallary = () => {
     return (
         <div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className=" bg-red-300 grid grid-cols-2 py-10 px-10 md:grid-cols-3 gap-10">
                 <div>
-                    <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="" />
+                    <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg" alt="" />
                 </div>
                 <div>
                     <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="" />
@@ -41,9 +41,9 @@ export const Gallary = () => {
                     <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg" alt="" />
                 </div>
                 <div>
-                    <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg" alt="" />
+                    <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="" />
                 </div>
-            </div>
+            </div> 
         </div>
     )
 }

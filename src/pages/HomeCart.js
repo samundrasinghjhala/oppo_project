@@ -5,8 +5,8 @@ import ItemCard from "./ItemCard";
 const HomeCart = () => {
     return (
         <>
-            <section className="py-24 bg-gray-100">
-                <div className="grid max-w-6xl grid-cols-1 gap-6 p-6 mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <section className="py-24 home-Page-image">
+                <div className="grid max-w-6xl grid-cols-1 gap-10 p-2 mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                     {data.productData.map((item, index) => {
                         return (
                             <ItemCard

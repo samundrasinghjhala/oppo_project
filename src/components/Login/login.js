@@ -60,9 +60,7 @@ const Login = () => {
     };
     return (
         <>
-           
-
-            <div className="login">
+            <div className="login-Page-image">
                 <div className="min-h-screen sm:flex sm:flex-row justify-center">
                     <div className="flex-col flex self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
                         <div className="self-start hidden lg:flex flex-col text-white"></div>
@@ -90,7 +88,6 @@ const Login = () => {
                                             id="email"
                                             onChange={handleInput}
                                             placeholder="mail@gmail.com"
-
                                         ></input>
                                         {errors.email && (
                                             <p style={{ color: "red" }}>{errors.email}</p>
@@ -106,7 +103,6 @@ const Login = () => {
                                             className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
                                             type="password"
                                             name="password"
-
                                             placeholder="Enter your password"
                                             onChange={handleInput}
                                         ></input>
@@ -159,7 +155,6 @@ const Login = () => {
                                 </span>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

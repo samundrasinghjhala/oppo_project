@@ -32,19 +32,27 @@
 .App-link {
   color: #61dafb;
 }
-.login {
+.login-Page-image {
   width: 100%;
   height: 100%;
-  background: url("https://images.pexels.com/photos/4590395/pexels-photo-4590395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  background: url("../src/image/pexels-toa-heftiba-şinca.jpg") center center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.home-Page-image {
+  width: 100%;
+  height: 100%;
+  background: url("../src/image/pexels-ann-h.jpg") center center;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 .vl {
-  background: linear-gradient(rgba(2, 2, 2, 0.7), rgba(0, 0, 0, 0.7)),
-    url("https://images.unsplash.com/photo-1650825556125-060e52d40bd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
-      center center;
+  background: url("../src/image/pexels-stein-egil-liland.jpg") center center;
   width: 100%;
   height: 100vh;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 .login_img_section {
   background: linear-gradient(rgba(2, 2, 2, 0.7), rgba(0, 0, 0, 0.7)),
@@ -52,10 +60,10 @@
       center center;
 }
 
-.main {
+.main-page-image {
   width: 100%;
   height: 100vh;
-  background-image: url("https://images.pexels.com/photos/4590395/pexels-photo-4590395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  background-image: url("../src/image/pexels-moose.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -94,4 +102,3 @@
   padding: 0;
   z-index: 9999;
 }
-

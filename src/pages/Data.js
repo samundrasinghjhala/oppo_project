@@ -12,6 +12,8 @@ import product11 from '../image/product11.png';
 import product12 from '../image/product12.png';
 import product13 from '../image/product13.png';
 import product14 from '../image/product14.png';
+import product15 from '../image/product15.png';
+import product16 from '../image/product16.png';
 
 const Data = {
     productData: [
@@ -101,6 +103,18 @@ const Data = {
             title: 'Redmi K50i 5G',
             desc: ' 6GB RAM, 128GB Storage | Flagship 8100 Processor | 144Hz Liquid FFS Display',
             price: 20999,
+        }, {
+            id: 15,
+            img: product15,
+            title: 'Apple iPhone 12',
+            desc: ' 64GB - Product RED 128GB Storage | Flagship 8100 Processor | 144Hz Liquid FFS Display',
+            price: 53999,
+        }, {
+            id: 16,
+            img: product16,
+            title: 'Redmi Note 12 5G',
+            desc: ' Mystique Blue 4GB RAM 128GB ROM | 1st Phone with 120Hz Super AMOLED and Snapdragon® 4 Gen 1',
+            price: 16999,
         },
     ]
 }

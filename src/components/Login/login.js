@@ -141,8 +141,8 @@ const Login = () => {
                                     <div className="text-center">
                                         <p>Not a member? <Link to="/Signup" className=" text-muted text-blue-400 hover:text-orange-500">Register</Link></p>
                                     </div>
-                                </div>
-                            </form>
+                                </div >
+                            </form >
                             <div className="pt-5 text-center text-gray-400 text-xs">
                                 <span>
                                     Copyright © 2023-2024_
@@ -153,10 +153,10 @@ const Login = () => {
                                     </a>
                                 </span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        </div >
+                    </div >
+                </div >
+            </div >
         </>
     )
 }

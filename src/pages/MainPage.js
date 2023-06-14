@@ -30,7 +30,7 @@ const MainPage = () => {
                 </div>
             </div>
 
-            <div className="hidden lg:flex w-full lg:w-1/2 main justify-around items-center">
+            <div className="hidden lg:flex w-full lg:w-1/2 main-page-image justify-around items-center">
                 <div className=" bg-black opacity-20 inset-0 z-0">
                 </div>
                 <div className="w-full mx-auto px-20 flex-col items-center space-y-6">

@@ -60,9 +60,7 @@ const Login = () => {
     };
     return (
         <>
-
-
-            <div className="login">
+            <div className="login-Page-image">
                 <div className="min-h-screen sm:flex sm:flex-row justify-center">
                     <div className="flex-col flex self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
                         <div className="self-start hidden lg:flex flex-col text-white"></div>
@@ -106,10 +104,12 @@ const Login = () => {
                                                 onChange={handleInput}
                                             />
                                         </label>
-                                        {errors.password && (
-                                            <p style={{ color: "red" }}>{errors.password}</p>
-                                        )}
-                                    </div>
+                                        {
+                                            errors.password && (
+                                                <p style={{ color: "red" }}>{errors.password}</p>
+                                            )
+                                        }
+                                    </div >
                                     <div className="flex items-center justify-between">
                                         <div className="flex items-center">
                                             <input
@@ -142,8 +142,8 @@ const Login = () => {
                                         <p>Not a member? <Link to="/Signup" className=" text-muted text-blue-400 hover:text-orange-500">Register</Link></p>
 
                                     </div>
-                                </div>
-                            </form>
+                                </div >
+                            </form >
                             <div className="pt-5 text-center text-gray-400 text-xs">
                                 <span>
                                     Copyright © 2023-2024_
@@ -154,11 +154,10 @@ const Login = () => {
                                     </a>
                                 </span>
                             </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+                        </div >
+                    </div >
+                </div >
+            </div >
         </>
     )
 }

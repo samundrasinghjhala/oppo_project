@@ -60,7 +60,7 @@ const Login = () => {
     };
     return (
         <>
-           
+
 
             <div className="login">
                 <div className="min-h-screen sm:flex sm:flex-row justify-center">
@@ -80,36 +80,32 @@ const Login = () => {
                             <form onSubmit={handleValidation}>
                                 <div className="space-y-5">
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-gray-700 tracking-wide">
-                                            Email
+                                        <label>
+                                            <span className="text-sm font-medium text-gray-700 tracking-wide">Email</span>
+                                            <input
+                                                className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
+                                                name="email"
+                                                type="email"
+                                                id="email"
+                                                onChange={handleInput}
+                                                placeholder="mail@gmail.com"
+                                            />
                                         </label>
-                                        <input
-                                            className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
-                                            name="email"
-                                            type="email"
-                                            id="email"
-                                            onChange={handleInput}
-                                            placeholder="mail@gmail.com"
-
-                                        ></input>
                                         {errors.email && (
                                             <p style={{ color: "red" }}>{errors.email}</p>
                                         )}
                                     </div>
                                     <div className="space-y-2">
-                                        <label
-                                            htmlFor="pswrd"
-                                            className="mb-5 text-sm font-medium text-gray-700 tracking-wide">
-                                            Password
+                                        <label>
+                                            <span className="text-sm font-medium text-gray-700 tracking-wide">Password</span>
+                                            <input
+                                                className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
+                                                type="password"
+                                                name="password"
+                                                placeholder="Enter your password"
+                                                onChange={handleInput}
+                                            />
                                         </label>
-                                        <input
-                                            className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
-                                            type="password"
-                                            name="password"
-
-                                            placeholder="Enter your password"
-                                            onChange={handleInput}
-                                        ></input>
                                         {errors.password && (
                                             <p style={{ color: "red" }}>{errors.password}</p>
                                         )}
@@ -143,7 +139,7 @@ const Login = () => {
                                         </button>
                                     </div>
                                     <div className="text-center">
-                                        <p>Not a member? <Link to="/Signup"><a className=" text-muted text-blue-400 hover:text-orange-500">Register</a></Link></p>
+                                        <p>Not a member? <Link to="/Signup" className=" text-muted text-blue-400 hover:text-orange-500">Register</Link></p>
 
                                     </div>
                                 </div>

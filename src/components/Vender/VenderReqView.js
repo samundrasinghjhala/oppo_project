@@ -27,7 +27,7 @@ const VenderReqView = () => {
 
     return (
         <>
-            <div className='vl'>
+            <div className='vender-login'>
                 <h1 className='h1'>Vendor Requirement</h1>
                 <div class="md:px-96 py-2 w-full">
                     <div class="shadow overflow-hidden rounded border-b border-gray-200">

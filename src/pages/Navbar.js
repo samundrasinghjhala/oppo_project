@@ -3,27 +3,15 @@ import { Menu } from '@headlessui/react'
 import logo from '../phone logo.png'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom';
-import { ShoppingCart } from 'heroicons-react';
-// import { useState } from 'react';
+import { ShoppingCartOutlined } from '@ant-design/icons';
+import { Badge, Space } from 'antd';
 
 
-const Navbar = ({ show }) => {
-    // const [stiky, setSticky] = useState(false);
+const Navbar = (props) => {
 
-    // function navFixed() {
-    //     if (window.scrollY >= 392) {
-    //         setSticky(true)
-    //     } else {
-    //         setSticky(false)
-    //     }
-    // }
-
-    // window.addEventListener("scroll", navFixed)
 
     const navigate = useNavigate();
-    const handleShow = () => {
-        show((prev) => !prev);
-    }
+
     const handleLogOut = (e) => {
         e.preventDefault();
         localStorage.removeItem('token')
@@ -53,12 +41,11 @@ const Navbar = ({ show }) => {
                     <Link to="/About" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">About</Link>
                     <Link to="/Contact" className="mr-20 font-semibold text-gray-900 hover:text-orange-500">Contact</Link>
                 </nav>
-                <div className='flex-cart shopping-cart'>
-                    <a className='flex'>
-                        <ShoppingCart style={{ cursor: "pointer" }} size={40} onClick={handleShow} />
-                    </a>
-                </div>
-
+                <Space className='px-8 space-x-5'>
+                    <Badge count={props.data.length}>
+                        <ShoppingCartOutlined style={{ fontSize: 30 }} />
+                    </Badge>
+                </Space>
                 <div className=" flex items-end h-full pl-7 ml-10 border-l  border-gray-200 absolute inset-y-0 right-0 pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                     <Menu as="div" className="relative ml-3">
                         <div>

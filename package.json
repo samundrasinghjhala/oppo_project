@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^5.1.4",
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.18",
     "@iconify/icons-heroicons-solid": "^1.2.6",
@@ -55,7 +56,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
     "@testing-library/react": "^14.0.0",
+    "babel-jest": "^29.5.0",
     "tailwindcss": "^3.3.2"
   }
 }

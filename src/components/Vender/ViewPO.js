@@ -27,12 +27,12 @@ const ViewPO = () => {
 
     return (
         <>
-            <div className='vl'>
+            <div className='vender-login'>
                 <h1 className='h1'>Purchase Order List</h1>
                 <div class="md:px-32 py-2 w-full">
                     <div class="shadow overflow-hidden rounded border-b border-gray-200">
                         <table class="min-w-full bg-white">
-                            <thead class="bg-gray-800 text-white">
+                            <thead class="bg-gray-500 text-white">
                                 <tr>
                                     <th class=" text-left py-3 px-4 uppercase font-semibold text-sm">Product</th>
                                     <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Quantity</th>

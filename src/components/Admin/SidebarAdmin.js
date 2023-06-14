@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const SidebarAdmin = () => {
     return (
         <>
-            <div className="sidebar w-[3.35rem] overflow-hidden border-r-2 hover:w-64 hover:bg-slate-300 hover:shadow-lg">
+            <div className="sidebar w-[3.35rem] overflow-hidden border-r-2 hover:w-64 hover:bg-white hover:shadow-lg">
                 <div className="flex h-screen flex-col justify-between pt-2 pb-6">
                     <ul className="mt-20 space-y-5 tracking-wide">
                         <li className="min-w-max">

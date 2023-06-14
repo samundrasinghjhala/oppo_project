@@ -1,8 +1,9 @@
-
+import { Badge, Space } from 'antd';
 import { Menu } from '@headlessui/react'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 import logo from '../../phone logo.png'
+import { BellFilled, MailOutlined } from '@ant-design/icons';
 
 const NavbarAdmin = () => {
     const navigate = useNavigate();
@@ -24,9 +25,9 @@ const NavbarAdmin = () => {
     return (
         <>
 
-            <div className="w-full text-gray-700 bg-white justify-center nav-fixed body-font" >
-                <div className=" flex flex-col justify-center shadow-md sticky p-4 mx-auto md:flex-row">
-                    <div className="flex items-center">
+            <div className="w-full text-gray-700 bg-white nav-fixed body-font" >
+                <div className=" flex flex-col shadow-md sticky p-4 mx-auto md:flex-row">
+                    <div className="flex items-center space-x-32">
                         <div className="flex-shrink-0">
                             <img
                                 className="h-12 w-22"
@@ -34,10 +35,20 @@ const NavbarAdmin = () => {
                                 alt="Your Company"
                             />
                         </div>
+                        <h1 className='font-extrabold text-3xl '>Admin Panel</h1>
                     </div>
                     <div className=" flex items-center justify-center  md:ml-auto">
-                        <h1 className='font-extrabold text-3xl justify-center '>Admin Panel</h1>
+
                     </div>
+                    <Space className='px-8 space-x-5'>
+                        <Badge count={10} dot>
+                            <MailOutlined style={{ fontSize: 30 }} />
+                        </Badge>
+
+                        <Badge count={18}>
+                            <BellFilled style={{ fontSize: 30 }} />
+                        </Badge>
+                    </Space>
                     <div className=" flex items-end h-full pl-7 ml-10 border-l  border-gray-200 absolute inset-y-0 right-0 pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                         <Menu as="div" className="relative ml-3">
                             <div>

@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Signup from './components/Signup/Signup';
 import Login from './components/Login/login';
-import Home from './pages/Home';
+// import Home from './pages/Home';
 import MainPage from './pages/MainPage';
 import { Product } from './pages/Product';
 import { Gallary } from './pages/Gallary';
@@ -25,6 +25,7 @@ import Navbar from './pages/Navbar';
 import ItemCard from './pages/ItemCard';
 import Cart from './pages/Cart';
 import HomeCart from './pages/HomeCart';
+import HomeContainer from './containers/HomeContainer';
 
 
 function App() {
@@ -54,12 +55,12 @@ function App() {
           <Route path="/AdminViewVenderReq" element={<AdminViewVenderReq />} />
           <Route path="/AdminViewPO" element={<AdminViewPO />} />
           <Route path="/ItemCard" element={<ItemCard />} />
-          <Route path="/Home" element={<Home />} />
+          <Route path="/Home" element={<HomeContainer />} />
           <Route path="/HomeCart" element={<HomeCart />} />
           <Route path="/Cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
-
+      {/* <HomeContainer /> */}
     </div>
   );
 }

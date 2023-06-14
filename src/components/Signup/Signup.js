@@ -65,7 +65,7 @@ const Signup = () => {
     return (
         <>
             <title>Sign Up</title>
-            <div className="login">
+            <div className="login-Page-image">
                 <div className="min-h-screen sm:flex sm:flex-row justify-center">
                     <div className="flex-col flex self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
                         <div className="self-start hidden lg:flex flex-col text-white"></div>
@@ -80,38 +80,37 @@ const Signup = () => {
                                     Create an User account.
                                 </p>
                             </div>
-
                             <form onSubmit={handleValidation}>
                                 <div className="space-y-2">
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-gray-700 tracking-wide">
                                             Name
+                                            <input
+                                                className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
+                                                type="text"
+                                                name="name"
+                                                onChange={handleInput}
+                                                placeholder="Enter full name"
+                                            ></input>
+                                            {errors.name && (
+                                                <p style={{ color: "red" }}>{errors.name}</p>
+                                            )}
                                         </label>
-                                        <input
-                                            className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
-                                            type="text"
-                                            name="name"
-                                            onChange={handleInput}
-                                            placeholder="Enter full name"
-                                        ></input>
-                                        {errors.name && (
-                                            <p style={{ color: "red" }}>{errors.name}</p>
-                                        )}
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-gray-700 tracking-wide">
                                             Email
+                                            <input
+                                                className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
+                                                type="email"
+                                                name="email"
+                                                onChange={handleInput}
+                                                placeholder="mail@gmail.com"
+                                            ></input>
+                                            {errors.email && (
+                                                <p style={{ color: "red" }}>{errors.email}</p>
+                                            )}
                                         </label>
-                                        <input
-                                            className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
-                                            type="email"
-                                            name="email"
-                                            onChange={handleInput}
-                                            placeholder="mail@gmail.com"
-                                        ></input>
-                                        {errors.email && (
-                                            <p style={{ color: "red" }}>{errors.email}</p>
-                                        )}
                                     </div>
                                     <div className="mt-4">
                                         <span className="text-gray-700">Gender</span>
@@ -129,53 +128,53 @@ const Signup = () => {
                                     <div className="space-y-2">
                                         <label className="mb-5 text-sm font-medium text-gray-700 tracking-wide">
                                             Password
+                                            <input
+                                                className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
+                                                type="password"
+                                                name="password"
+                                                onChange={handleInput}
+                                                placeholder="Enter your password"
+                                            ></input>
+                                            {errors.password && (
+                                                <p style={{ color: "red" }}>{errors.password}</p>
+                                            )}
                                         </label>
-                                        <input
-                                            className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
-                                            type="password"
-                                            name="password"
-                                            onChange={handleInput}
-                                            placeholder="Enter your password"
-                                        ></input>
-                                        {errors.password && (
-                                            <p style={{ color: "red" }}>{errors.password}</p>
-                                        )}
                                     </div>
                                     <div className="space-y-2">
                                         <label className="mb-5 text-sm font-medium text-gray-700 tracking-wide">
                                             Password Confirmation
+                                            <input
+                                                className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
+                                                type="password"
+                                                name="confirm_password"
+                                                placeholder="Enter your password again"
+                                                onChange={handleInput}
+                                            ></input>
+                                            {errors.confirm_password && (
+                                                <p style={{ color: "red" }}>{errors.confirm_password}</p>
+                                            )}
                                         </label>
-                                        <input
-                                            className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
-                                            type="password"
-                                            name="confirm_password"
-                                            placeholder="Enter your password again"
-                                            onChange={handleInput}
-                                        ></input>
-                                        {errors.confirm_password && (
-                                            <p style={{ color: "red" }}>{errors.confirm_password}</p>
-                                        )}
                                     </div>
                                     <div>
-                                        <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Phone number</label>
-                                        <input type="text" name="phone" id="phone" onChange={handleInput}
-                                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                            placeholder="+91-" required />
+                                        <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Phone number
+                                            <input type="text" name="phone" id="phone" onChange={handleInput}
+                                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                placeholder="+91-" required />
+                                        </label>
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-gray-700 tracking-wide">
                                             Address
+                                            <input
+                                                className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
+                                                type="text"
+                                                name="address"
+                                                onChange={handleInput}
+                                                placeholder="Enter Address"
+                                            ></input>  {errors.address && (
+                                                <p style={{ color: "red" }}>{errors.address}</p>
+                                            )}
                                         </label>
-                                        <input
-                                            className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400"
-                                            type="text"
-                                            name="address"
-                                            onChange={handleInput}
-                                            placeholder="Enter Address"
-                                        ></input>  {errors.address && (
-                                            <p style={{ color: "red" }}>{errors.address}</p>
-                                        )}
-
                                     </div>
                                     <div>
                                         <button

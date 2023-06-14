@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import Login from '../../src/components/Login/login'
 import userEvent from '@testing-library/user-event'
+import '@testing-library/jest-dom'
 
 
 test('Initial conditions', () => {

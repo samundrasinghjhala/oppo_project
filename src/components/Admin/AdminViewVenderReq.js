@@ -27,32 +27,37 @@ const AdminViewVenderReq = () => {
 
     return (
         <>
-            <h1 className='h1'>Vendor Requirement</h1>
-            <div>
-                <table style={{ borderCollapse: 'collapse', border: '1px solid black' }}>
-                    <thead>
-                        <tr>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>Product</th>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>Quantity</th>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>Closed On</th>
-                            <th style={{ border: '1px solid black', padding: '8px' }}>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.map((item) => (
-                            <tr key={item._id}>
-                                <td style={{ border: '1px solid black', padding: '8px' }}>{item.product}</td>
-                                <td style={{ border: '1px solid black', padding: '8px' }}>{item.quantity}</td>
-                                <td style={{ border: '1px solid black', padding: '8px' }}>{item.closedOn}</td>
-                                <td style={{ border: '1px solid black', padding: '8px' }}>{item.description}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-                <div><br />
-                    <Link to="/AdminViewPO" className=" text-2xl  text-muted text-blue-400 hover:text-orange-500">
-                        Admin View Purchase order
-                    </Link>
+            <div className='vender-login'>
+                <h1 className='h1'>Vendor Requirement</h1>
+                <div class="md:px-96 py-2 w-full">
+                    <div class="shadow overflow-hidden rounded border-b border-gray-200">
+                        <table class="min-w-full bg-white">
+                            <thead class="bg-gray-500 text-white">
+                                <tr>
+
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Product</th>
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Quantity</th>
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Closed On</th>
+                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                {data.map((item) => (
+                                    <tr class="bg-gray-100" key={item._id}>
+                                        <td class="text-left text-cyan-600 py-3 px-4">{item.product}</td>
+                                        <td class="text-left text-red-600 py-3 px-4">{item.quantity}</td>
+                                        <td class="text-left text-fuchsia-600 py-3 px-4">{item.closedOn}</td>
+                                        <td class="text-left text-green-600 py-3 px-4">{item.description}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <Link to="/AdminViewPO" className=" text-2xl text-blue-400 hover:text-orange-500">
+                            View Purchase order
+                        </Link>
+                    </div>
                 </div>
             </div>
         </>

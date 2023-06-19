@@ -6,11 +6,12 @@ const VenderReqView = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetchData();
+        handleAxios();
     }, []);
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjQ4MmU2ZTgxNjY1YjNkNmEzZmVlYmMwIiwiaWF0IjoxNjg2MzAxMDY3LCJleHAiOjE2ODY5MDU4Njd9.Vv5r70_zP6Tma8apCnlQ6nIdBIP09TDASzhdF-1NdSs"
 
-    const fetchData = async () => {
+    const token = localStorage.getItem('token')
+
+    const handleAxios = async () => {
         try {
             const response = await axios.get('http://localhost:3010/publish_requirements', {
                 headers: {
@@ -29,30 +30,28 @@ const VenderReqView = () => {
         <>
             <div className='vender-login'>
                 <h1 className='h1'>Vendor Requirement</h1>
-                <div class="md:px-96 py-2 w-full">
-                    <div class="shadow overflow-hidden rounded border-b border-gray-200">
-                        <table class="min-w-full bg-white">
-                            <thead class="bg-gray-800 text-white">
+                <div className="md:px-96 py-2 w-full">
+                    <div className="shadow overflow-hidden rounded border-b border-gray-200">
+                        <table className="min-w-full bg-white">
+                            <thead className="bg-gray-800 text-white">
                                 <tr>
-
-                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Product</th>
-                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Quantity</th>
-                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Closed On</th>
-                                    <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Description</th>
+                                    <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Product</th>
+                                    <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Quantity</th>
+                                    <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Closed On</th>
+                                    <th className="text-left py-3 px-4 uppercase font-semibold text-sm">Description</th>
                                 </tr>
                             </thead>
-                            <tbody class="text-gray-700">
+                            <tbody className="text-gray-700">
                                 {data.map((item) => (
-                                    <tr class="bg-gray-100" key={item._id}>
-                                        <td class="text-left text-cyan-600 py-3 px-4">{item.product}</td>
-                                        <td class="text-left text-red-600 py-3 px-4">{item.quantity}</td>
-                                        <td class="text-left text-fuchsia-600 py-3 px-4">{item.closedOn}</td>
-                                        <td class="text-left text-green-600 py-3 px-4">{item.description}</td>
+                                    <tr className="bg-gray-100" key={item._id}>
+                                        <td className="text-left text-cyan-600 py-3 px-4">{item.product}</td>
+                                        <td className="text-left text-red-600 py-3 px-4">{item.quantity}</td>
+                                        <td className="text-left text-fuchsia-600 py-3 px-4">{item.closedOn}</td>
+                                        <td className="text-left text-green-600 py-3 px-4">{item.description}</td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
-
                     </div>
                     <div>
                         <Link to="/ViewPO" className=" text-2xl text-blue-400 hover:text-orange-500">

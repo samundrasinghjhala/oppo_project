@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import validation from "./VenderLoginValidation";
 import { useNavigate, Link } from "react-router-dom";
 
-const VenderLogin = () => {
+const VenderLogin = ({ alert }) => {
     const [errors, setErrors] = useState({});
     const [checking, setChecking] = useState(false);
 
@@ -24,13 +24,12 @@ const VenderLogin = () => {
     }
     useEffect(() => {
         if (checking && Object.keys(errors).length === 0) {
-            fetchData();
+            handleAxios();
         }
     }, [errors]);
 
-    const fetchData = async () => {
+    const handleAxios = async () => {
         setChecking(false);
-        console.log('values', values)
         axios.post(
             "http://localhost:3010/vendors/login",
             {
@@ -38,11 +37,12 @@ const VenderLogin = () => {
                 password: values.password
             })
             .then((result) => {
-                console.log('result', result.data);
                 if (
                     result.data.data.role === 'vendor'
                 ) {
                     localStorage.setItem('token', result.data.data.auth_token);
+                    // localStorage.setItem('venderId', result.data.data._id)
+                    console.log("venderData", result.data.data)
                     alert('Vendor Login successfully');
                     navigate('/VenderPO');
                 } else {
@@ -50,12 +50,9 @@ const VenderLogin = () => {
                     alert('Dealer Login successfully');
                     navigate('/DealerReq');
                 }
-
             })
             .catch((error) => {
-                alert('Incorrect Email or Password')
-                console.log("Unauthorised User");
-                console.log(error);
+                alert('Incorrect Email or Password', "error")
             });
     };
 

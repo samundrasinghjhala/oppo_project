@@ -2,10 +2,10 @@ import { Badge, Space } from 'antd';
 import { Menu } from '@headlessui/react'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
-import logo from '../../phone logo.png'
+import logo from '../../image/phone logo.png'
 import { BellFilled, MailOutlined } from '@ant-design/icons';
 
-const NavbarAdmin = () => {
+const NavbarAdmin = ({ alert }) => {
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
 
@@ -16,6 +16,7 @@ const NavbarAdmin = () => {
     const handleLogOut = (e) => {
         e.preventDefault();
         localStorage.removeItem('token')
+        alert("SignOut Successfully")
         navigate("/");
     }
 

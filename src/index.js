@@ -3,12 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { legacy_createStore as createStore } from 'redux'
+import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux'
-import rootReducer from './ReduxServices/Reducers/index'
-const store = createStore(rootReducer)
+import cartReducer from "./pages/Home/CartSlice"
 
 
+const store = configureStore({
+  reducer: {
+    allCart: cartReducer,
+  },
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

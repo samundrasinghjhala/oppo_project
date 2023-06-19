@@ -4,7 +4,7 @@ import validation from "./SignupValidation";
 import { useNavigate } from "react-router-dom";
 
 
-const Signup = () => {
+const Signup = ({ alert }) => {
     const [errors, setErrors] = useState({});
     const [checking, setChecking] = useState(false);
     const navigate = useNavigate();
@@ -31,12 +31,12 @@ const Signup = () => {
     }
     useEffect(() => {
         if (checking && Object.keys(errors).length === 0) {
-            fetchData();
+            handleAxios();
         }
     }, [errors]);
 
 
-    const fetchData = async () => {
+    const handleAxios = async () => {
         setChecking(false);
         console.log(values);
         await axios
@@ -53,11 +53,11 @@ const Signup = () => {
             )
             .then((result) => {
                 console.log(result.data);
-                alert("New user created successfully");
+                alert("New User Created Successfully");
                 navigate("/");
             })
             .catch((error) => {
-                console.log("User created Axios error");
+                alert("User Not Created", "error");
                 console.log(error);
             });
     };

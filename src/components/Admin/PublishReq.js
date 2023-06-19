@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const PublishReq = () => {
+const PublishReq = ({ alert }) => {
     const navigate = useNavigate();
     const [values, setValues] = useState({
         product: "",
@@ -19,10 +19,12 @@ const PublishReq = () => {
 
     function handleValidation(e) {
         e.preventDefault();
-        fetchData();
+        publishData();
     }
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjQ3ZWQ1N2FkZTM3NzY0MTY5ZDhlZTg3IiwiaWF0IjoxNjg2MzAwNjEyLCJleHAiOjE2ODY5MDU0MTJ9.1DBduOHfGCqTnLbc9zeeBNhWJLZZBa28uxTYtPEVgoc";
-    const fetchData = async () => {
+
+    const token = localStorage.getItem('token')
+
+    const publishData = async () => {
         console.log(values);
         await axios
             .post(
@@ -46,7 +48,7 @@ const PublishReq = () => {
                 navigate("/AdminPage");
             })
             .catch((error) => {
-                console.log(" Publish Unsuccessfully!");
+                alert(" Publish Unsuccessfully!", "error");
                 console.log(error);
             });
     };

@@ -4,7 +4,7 @@ import validation from "./VanderSignupValidation";
 import { useNavigate } from "react-router-dom";
 
 
-const VenderSignup = () => {
+const VenderSignup = ({ alert }) => {
 
     const [errors, setErrors] = useState({});
     const [checking, setChecking] = useState(false);
@@ -23,8 +23,6 @@ const VenderSignup = () => {
     const handleInput = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value });
     };
-
-
     function handleValidation(e) {
         e.preventDefault();
         setChecking(true);
@@ -32,12 +30,12 @@ const VenderSignup = () => {
     }
     useEffect(() => {
         if (checking && Object.keys(errors).length === 0) {
-            fetchData();
+            handleAxios();
         }
     }, [errors]);
 
 
-    const fetchData = async () => {
+    const handleAxios = async () => {
         setChecking(false);
         console.log(values);
         await axios
@@ -55,11 +53,11 @@ const VenderSignup = () => {
             )
             .then((result) => {
                 console.log(result.data);
-                alert("Created successfully");
+                alert("Created Successfully");
                 navigate("/VenderLogin");
             })
             .catch((error) => {
-                console.log("User Not Created!");
+                alert("User Not Created!", "error");
                 console.log(error);
             });
     };

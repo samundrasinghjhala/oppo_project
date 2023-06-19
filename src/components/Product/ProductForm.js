@@ -3,9 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
-
-const ProductForm = () => {
+const ProductForm = ({ alert }) => {
     const navigate = useNavigate();
     const [values, setValues] = useState({
         sku_product_id: "",
@@ -22,17 +20,14 @@ const ProductForm = () => {
         setValues({ ...values, [e.target.name]: e.target.value });
     };
 
-
     function handleValidation(e) {
         e.preventDefault();
-        fetchData();
+        handleAxios();
     }
-    // useEffect(() => {
 
-    // }, []);
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjQ3ZWQ1N2FkZTM3NzY0MTY5ZDhlZTg3IiwiaWF0IjoxNjg2MjAxOTY2LCJleHAiOjE2ODY4MDY3NjZ9.6ALOsjSFr1AF2HV31eb6tJixVJoC5R_A_W8xIFoUhDw"
+    const token = localStorage.getItem('token')
 
-    const fetchData = async () => {
+    const handleAxios = async () => {
         console.log(values);
         await axios
             .post(
@@ -56,10 +51,10 @@ const ProductForm = () => {
             .then((result) => {
                 console.log(result.data);
                 alert("Product Upload successfully");
-                navigate("/");
+                navigate("/AdminPage");
             })
             .catch((error) => {
-                console.log("Product Not Uploaded!");
+                alert("Product Not Uploaded!", "error");
                 console.log(error);
             });
     };
@@ -67,14 +62,12 @@ const ProductForm = () => {
     return (
         <div>
             <div className="h-screen flex">
-                <div className="hidden lg:flex w-full lg:w-1/2 login_img_section justify-around items-center">
-                    <div className=" bg-black opacity-20 inset-0 z-0">
-                    </div>
-                    <div className="w-full mx-auto px-20 flex-col items-center space-y-6">
-                        <h1 className="text-white font-bold text-4xl font-sans">SAMSUNG GALAXY</h1>
-                        <p className="text-white mt-1">Welcome to Samsung World</p>
+                <div className="hidden lg:flex lg:w-1/2 login-Page-image2 justify-around items-center">
+                    <div className="w-full mx-auto px-72 flex-col items-center space-y-8">
+                        <h1 className="text-blue-800 font-bold text-4xl font-serif">Admin Panel</h1>
+                        <p className="text-black mt-1">Welcome to Phone Store</p>
                         <div className="flex justify-center lg:justify-start mt-6">
-                            <a href="#" className="hover:bg-indigo-700 hover:text-white hover:-translate-y-1 transition-all duration-500 bg-white text-indigo-800 mt-4 px-4 py-2 rounded-2xl font-bold mb-2">Get Started</a>
+                            <a href="#" className="hover:bg-indigo-700 hover:text-white hover:-translate-y-1 transition-all duration-500 bg-green-500 text-indigo-800 mt-4 px-4 py-2 rounded-2xl font-bold mb-2">Get Started</a>
                         </div>
                     </div>
                 </div>

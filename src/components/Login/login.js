@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import validation from "./LoginValidation";
 import { useNavigate, Link } from "react-router-dom";
 
-const Login = () => {
+
+const Login = ({ alert }) => {
     const [errors, setErrors] = useState({});
     const [checking, setChecking] = useState(false);
 
@@ -24,13 +25,12 @@ const Login = () => {
     }
     useEffect(() => {
         if (checking && Object.keys(errors).length === 0) {
-            fetchData();
+            userAdminLogin();
         }
     }, [errors]);
 
-    const fetchData = async () => {
+    const userAdminLogin = async () => {
         setChecking(false);
-        console.log('values', values)
         axios.post(
             "http://localhost:3010/users/login",
             {
@@ -38,24 +38,20 @@ const Login = () => {
                 password: values.password
             })
             .then((result) => {
-                console.log('result', result.data);
                 if (
                     result.data.data.role === 'admin'
                 ) {
-                    console.log(result.data.data.auth_token)
                     localStorage.setItem('token', result.data.data.auth_token);
-                    alert('Admin Login successfully');
+                    alert("Admin Login successfully!");
                     navigate('/AdminPage');
                 } else {
                     localStorage.setItem('token', result.data.data.auth_token);
-                    alert('User Login successfully');
-                    navigate('/Home');
+                    alert("User Login successfully!");
+                    navigate('/HomePage');
                 }
             })
             .catch((error) => {
-                alert('Incorrect Email or Password')
-                console.log("Unauthorised User");
-                console.log(error);
+                alert("Incorrect Email or Password!", "error");
             });
     };
     return (
@@ -137,6 +133,7 @@ const Login = () => {
                                             className="w-full flex justify-center bg-blue-400  hover:bg-orange-500 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-400">
                                             Login
                                         </button>
+
                                     </div>
                                     <div className="text-center">
                                         <p>Not a member? <Link to="/Signup" className=" text-muted text-blue-400 hover:text-orange-500">Register</Link></p>

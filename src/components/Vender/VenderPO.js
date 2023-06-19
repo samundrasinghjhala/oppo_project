@@ -6,7 +6,7 @@ import { useNavigate, Link } from "react-router-dom";
 const VenderPO = () => {
     const navigate = useNavigate();
     const [values, setValues] = useState({
-        vendor: "6482e6e81665b3d6a3feebc0",
+        vendor: "",
         product: "",
         price: "",
         quantity: "",
@@ -24,12 +24,12 @@ const VenderPO = () => {
 
     function handleValidation(e) {
         e.preventDefault();
-        fetchData();
+        handleAxios();
     }
 
     const token = localStorage.getItem('token')
 
-    const fetchData = async () => {
+    const handleAxios = async () => {
         console.log(values);
         await axios
             .post(
@@ -56,7 +56,7 @@ const VenderPO = () => {
                 navigate("/VenderPO");
             })
             .catch((error) => {
-                console.log("PO Not Uploaded!");
+                alert("PO Not Uploaded!", "error");
                 console.log(error);
             });
     };

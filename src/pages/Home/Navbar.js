@@ -1,21 +1,30 @@
-
 import { Menu } from '@headlessui/react'
-import logo from '../phone logo.png'
-import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom';
+import logo from '../../image/phone logo.png'
+import { useNavigate, Link } from 'react-router-dom'
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import { Badge, Space } from 'antd';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getCartTotal } from './CartSlice';
 
 const Navbar = (props) => {
+    const { cart, totalQuantity } = useSelector((state) => state.allCart);
 
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getCartTotal());
+    }, [cart])
 
     const navigate = useNavigate();
 
     const handleLogOut = (e) => {
         e.preventDefault();
         localStorage.removeItem('token')
+        props.alert("SignOut Successfully")
         navigate("/");
+    }
+    const handleClick = () => {
+        props.show((prev) => !prev)
     }
 
     function classNames(...classes) {
@@ -35,14 +44,14 @@ const Navbar = (props) => {
                     </div>
                 </div>
                 <nav className=" flex items-center justify-center md:ml-auto">
-                    <Link to="/Home" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">Home</Link>
+                    <Link to="/HomePage" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">Home</Link>
                     <Link to="/Product" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">Product</Link>
                     <Link to="/Gallary" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">Gallary</Link>
                     <Link to="/About" className="mr-10 font-semibold text-gray-900 hover:text-orange-500">About</Link>
                     <Link to="/Contact" className="mr-20 font-semibold text-gray-900 hover:text-orange-500">Contact</Link>
                 </nav>
-                <Space className='px-8 space-x-5'>
-                    <Badge count={props.data.length}>
+                <Space onClick={handleClick} className='px-8 space-x-5'>
+                    <Badge count={totalQuantity}>
                         <ShoppingCartOutlined style={{ fontSize: 30 }} />
                     </Badge>
                 </Space>
@@ -93,11 +102,9 @@ const Navbar = (props) => {
                                 )}
                             </Menu.Item>
                         </Menu.Items>
-
                     </Menu>
                 </div>
             </div>
-
         </>
     )
 }

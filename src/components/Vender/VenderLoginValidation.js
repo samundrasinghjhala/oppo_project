@@ -7,13 +7,13 @@ function validation(values) {
 
 
     if (values.email === "") {
-        error.email = "Enail Should not be empty"
+        error.email = "Email Should not be empty"
     }
     else if (!email_pattern.test(values.email)) {
-        error.email = "Email Didn't match"
+        error.email = "Enter vaild Email"
     }
     if (values.password === "") {
-        error.password = "password Should not be empty"
+        error.password = "Password Should not be empty"
     }
     else if (!password_pattern.test(values.password)) {
         error.password = "Password should be valid."

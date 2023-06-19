@@ -5,15 +5,14 @@ import SidebarAdmin from './SidebarAdmin';
 
 
 
-const AdminPage = () => {
+const AdminPage = ({ alert }) => {
 
 
     return (
         <>
-            <div className="admin">
-                <NavbarAdmin />
+            <div className="admin ">
+                <NavbarAdmin alert={alert} />
                 <SidebarAdmin />
-
             </div>
         </>
     )

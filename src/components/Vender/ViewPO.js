@@ -6,11 +6,11 @@ const ViewPO = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetchData();
+        handleAxios();
     }, []);
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjQ4MmU2ZTgxNjY1YjNkNmEzZmVlYmMwIiwiaWF0IjoxNjg2MzAxMDY3LCJleHAiOjE2ODY5MDU4Njd9.Vv5r70_zP6Tma8apCnlQ6nIdBIP09TDASzhdF-1NdSs"
+    const token = localStorage.getItem('token')
 
-    const fetchData = async () => {
+    const handleAxios = async () => {
         try {
             const response = await axios.get('http://localhost:3010/vendor_po', {
                 headers: {
